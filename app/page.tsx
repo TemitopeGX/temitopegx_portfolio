@@ -2,9 +2,10 @@
 
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
-import { FiCode, FiLayers, FiGithub, FiMail } from 'react-icons/fi';
+import { FiCode, FiLayers, FiGithub, FiMail, FiSmartphone, FiSettings, FiZap, FiShield } from 'react-icons/fi';
 import Star from './components/Star';
 import Image from 'next/image';
+import FallingText from './components/FallingText';
 
 export default function Home() {
   const [isVisible, setIsVisible] = useState(false);
@@ -180,8 +181,8 @@ export default function Home() {
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-16 items-start">
-            {/* Left Side - Image */}
-            <div className="order-2 lg:order-1">
+            {/* Left Side - Image - Hidden on mobile */}
+            <div className="order-2 lg:order-1 hidden lg:block">
               <div className="w-full max-w-md mx-auto lg:mx-0">
                 <div className="aspect-square bg-gray-100 overflow-hidden">
                   <Image
@@ -360,36 +361,142 @@ export default function Home() {
       </section>
 
       {/* Skills Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl sm:text-5xl font-black text-black mb-6">
-              WHAT I DO
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white relative overflow-hidden">
+        <div className="max-w-7xl mx-auto relative z-10">
+          {/* Header with FallingText */}
+          <div className="text-center mb-20">
+            <div className="inline-block bg-black text-white px-6 py-3 font-black text-sm mb-8">
+              SERVICES & EXPERTISE
+            </div>
+            <h2 className="text-6xl sm:text-7xl lg:text-8xl font-black text-black mb-8 font-antonio leading-none">
+              WHAT I
+              <span className="block text-green-500">CREATE</span>
             </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Combining technical expertise with creative design to deliver exceptional digital solutions
-            </p>
+            
+            {/* FallingText Interactive Element */}
+            <div className="h-32 mb-12">
+              <FallingText
+                text="Brand Identity Web Development UI/UX Design Frontend Magic Digital Marketing Product Launch"
+                highlightWords={["Brand", "Web", "UI/UX", "Frontend", "Digital", "Product"]}
+                trigger="scroll"
+                backgroundColor="transparent"
+                wireframes={false}
+                gravity={0.8}
+                fontSize="1.5rem"
+                mouseConstraintStiffness={0.9}
+              />
+            </div>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-12">
-            <div className="text-center">
-              <div className="w-20 h-20 bg-green-500 mx-auto mb-6 flex items-center justify-center">
-                <FiCode className="w-10 h-10 text-white" />
+          {/* Simple Services Grid */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {/* Brand Identity */}
+            <div className="group p-8 border-2 border-gray-200 hover:border-green-500 transition-all duration-300 hover:bg-gray-50">
+              <div className="flex items-center mb-6">
+                <div className="w-12 h-12 bg-green-500 flex items-center justify-center mr-4">
+                  <FiLayers className="w-6 h-6 text-white" />
+                </div>
+                <div className="text-2xl font-black text-black">01</div>
               </div>
-              <h3 className="text-2xl font-bold text-black mb-4">FRONT-END DEVELOPMENT</h3>
+              <h3 className="text-xl font-bold text-black mb-4">BRAND IDENTITY DESIGN</h3>
               <p className="text-gray-600 leading-relaxed">
-                Building fast, responsive, and scalable web applications using modern technologies like React, Next.js, and WordPress.
+                Creating memorable brand identities, logos, and visual systems that communicate your brand's unique story.
               </p>
             </div>
 
-            <div className="text-center">
-              <div className="w-20 h-20 bg-green-500 mx-auto mb-6 flex items-center justify-center">
-                <FiLayers className="w-10 h-10 text-white" />
+            {/* Web Development */}
+            <div className="group p-8 border-2 border-gray-200 hover:border-green-500 transition-all duration-300 hover:bg-gray-50">
+              <div className="flex items-center mb-6">
+                <div className="w-12 h-12 bg-green-500 flex items-center justify-center mr-4">
+                  <FiCode className="w-6 h-6 text-white" />
+                </div>
+                <div className="text-2xl font-black text-black">02</div>
               </div>
-              <h3 className="text-2xl font-bold text-black mb-4">WORDPRESS EXPERT</h3>
+              <h3 className="text-xl font-bold text-black mb-4">WEB DEVELOPMENT</h3>
               <p className="text-gray-600 leading-relaxed">
-                Creating custom WordPress themes and plugins, optimizing performance, and building content management systems.
+                Building fast, responsive, and scalable websites using modern technologies like React and Next.js.
               </p>
+            </div>
+
+            {/* UI/UX Design */}
+            <div className="group p-8 border-2 border-gray-200 hover:border-green-500 transition-all duration-300 hover:bg-gray-50">
+              <div className="flex items-center mb-6">
+                <div className="w-12 h-12 bg-green-500 flex items-center justify-center mr-4">
+                  <FiSmartphone className="w-6 h-6 text-white" />
+                </div>
+                <div className="text-2xl font-black text-black">03</div>
+              </div>
+              <h3 className="text-xl font-bold text-black mb-4">UI/UX DESIGN</h3>
+              <p className="text-gray-600 leading-relaxed">
+                Designing intuitive user interfaces and experiences that delight users and drive business results.
+              </p>
+            </div>
+
+            {/* Frontend Development */}
+            <div className="group p-8 border-2 border-gray-200 hover:border-green-500 transition-all duration-300 hover:bg-gray-50">
+              <div className="flex items-center mb-6">
+                <div className="w-12 h-12 bg-green-500 flex items-center justify-center mr-4">
+                  <FiSettings className="w-6 h-6 text-white" />
+                </div>
+                <div className="text-2xl font-black text-black">04</div>
+              </div>
+              <h3 className="text-xl font-bold text-black mb-4">FRONTEND DEVELOPMENT</h3>
+              <p className="text-gray-600 leading-relaxed">
+                Transforming designs into interactive, high-performance web applications with clean code.
+              </p>
+            </div>
+
+            {/* Digital Marketing */}
+            <div className="group p-8 border-2 border-gray-200 hover:border-green-500 transition-all duration-300 hover:bg-gray-50">
+              <div className="flex items-center mb-6">
+                <div className="w-12 h-12 bg-green-500 flex items-center justify-center mr-4">
+                  <FiZap className="w-6 h-6 text-white" />
+                </div>
+                <div className="text-2xl font-black text-black">05</div>
+              </div>
+              <h3 className="text-xl font-bold text-black mb-4">DIGITAL MARKETING</h3>
+              <p className="text-gray-600 leading-relaxed">
+                Strategic digital marketing campaigns to increase brand visibility and convert visitors into customers.
+              </p>
+            </div>
+
+            {/* Product Launch */}
+            <div className="group p-8 border-2 border-gray-200 hover:border-green-500 transition-all duration-300 hover:bg-gray-50">
+              <div className="flex items-center mb-6">
+                <div className="w-12 h-12 bg-green-500 flex items-center justify-center mr-4">
+                  <FiShield className="w-6 h-6 text-white" />
+                </div>
+                <div className="text-2xl font-black text-black">06</div>
+              </div>
+              <h3 className="text-xl font-bold text-black mb-4">PRODUCT LAUNCH</h3>
+              <p className="text-gray-600 leading-relaxed">
+                End-to-end product launch strategies, from market research to go-to-market execution.
+              </p>
+            </div>
+          </div>
+
+          {/* Interactive CTA with FallingText */}
+          <div className="mt-20 text-center">
+            <div className="bg-black p-12">
+              <h3 className="text-4xl font-black text-white mb-8">READY TO CREATE SOMETHING AMAZING?</h3>
+              <div className="h-24 mb-8">
+                <FallingText
+                  text="Let's collaborate and bring your vision to life with creativity and innovation"
+                  highlightWords={["collaborate", "vision", "creativity", "innovation"]}
+                  trigger="hover"
+                  backgroundColor="transparent"
+                  wireframes={false}
+                  gravity={0.6}
+                  fontSize="1.2rem"
+                  mouseConstraintStiffness={0.8}
+                />
+              </div>
+              <Link
+                href="/contact"
+                className="inline-block bg-green-500 text-black px-12 py-4 font-black text-lg hover:bg-white hover:text-black transition-colors duration-300"
+              >
+                LET'S TALK
+              </Link>
             </div>
           </div>
         </div>
