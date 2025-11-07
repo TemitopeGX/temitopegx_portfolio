@@ -555,7 +555,7 @@ export default function Home() {
                 className="group flex flex-col items-center justify-center p-3 sm:p-4 lg:p-6 bg-gray-50 border-2 border-gray-200 hover:border-green-500 transition-all duration-300 hover:bg-white"
               >
                 <div className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 mb-2 sm:mb-3 lg:mb-4 flex items-center justify-center">
-                  <Image
+            <Image
                     src={tech.icon}
                     alt={tech.name}
                     width={64}
