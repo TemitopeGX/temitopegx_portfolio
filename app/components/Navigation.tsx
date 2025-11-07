@@ -36,7 +36,7 @@ const Navigation = () => {
         <div className="flex justify-between items-center py-6">
           {/* Logo */}
           <Link href="/" className="text-xl font-black text-black">
-            TEMITOPE GX
+          TemitopéGX
           </Link>
 
           {/* Desktop Navigation */}
