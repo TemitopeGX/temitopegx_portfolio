@@ -7,15 +7,17 @@ import Star from './components/Star';
 import Image from 'next/image';
 import FallingText from './components/FallingText';
 
+type TechStackKey = 'Frontend' | 'Backend' | 'Design' | 'Tools';
+
 export default function Home() {
   const [isVisible, setIsVisible] = useState(false);
-  const [activeTab, setActiveTab] = useState('Frontend');
+  const [activeTab, setActiveTab] = useState<TechStackKey>('Frontend');
 
   useEffect(() => {
     setIsVisible(true);
   }, []);
 
-  const techStack = {
+  const techStack: Record<TechStackKey, { name: string; icon: string }[]> = {
     Frontend: [
       { name: 'React', icon: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/React_Logo_SVG.svg/800px-React_Logo_SVG.svg.png' },
       { name: 'Next.js', icon: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Next.js_wordmark.svg/1920px-Next.js_wordmark.svg.png' },
@@ -532,7 +534,7 @@ export default function Home() {
 
           {/* Tabs */}
           <div className="flex flex-wrap justify-center gap-2 sm:gap-4 mb-8 sm:mb-10 lg:mb-12 px-2">
-            {['Frontend', 'Backend', 'Design', 'Tools'].map((tab) => (
+            {(['Frontend', 'Backend', 'Design', 'Tools'] as TechStackKey[]).map((tab) => (
               <button
                 key={tab}
                 onClick={() => setActiveTab(tab)}
