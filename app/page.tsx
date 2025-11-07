@@ -25,14 +25,14 @@ export default function Home() {
             {/* Profile Image - Mobile only */}
             <div className="flex justify-center mb-12 lg:hidden">
               <div className="w-32 h-32 rounded-full overflow-hidden">
-                <Image
+        <Image
                   src="/20240615_100914.jpg"
                   alt="Temitope GX Profile"
                   width={128}
                   height={128}
                   className="w-full h-full object-cover"
-                  priority
-                />
+          priority
+        />
               </div>
             </div>
             
@@ -153,21 +153,208 @@ export default function Home() {
       </section>
 
       {/* Stats Section */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-black">
+      <section className="py-12 px-4 sm:px-6 lg:px-8 bg-black">
         <div className="max-w-6xl mx-auto">
-          <div className="grid md:grid-cols-3 gap-8 text-center">
-            <div className="bg-black p-8 border border-gray-800">
-              <div className="text-4xl font-black text-white mb-2">3+</div>
-              <div className="text-lg font-semibold text-gray-300">YEARS OF EXPERIENCE</div>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+            <div className="bg-black p-6">
+              <div className="text-3xl font-black text-white mb-2">3+</div>
+              <div className="text-sm font-semibold text-gray-300">YEARS OF EXPERIENCE</div>
             </div>
-            <div className="bg-black p-8 border border-gray-800">
-              <div className="text-4xl font-black text-white mb-2">300+</div>
-              <div className="text-lg font-semibold text-gray-300">PROJECTS COMPLETED</div>
+            <div className="bg-black p-6">
+              <div className="text-3xl font-black text-white mb-2">300+</div>
+              <div className="text-sm font-semibold text-gray-300">PROJECTS COMPLETED</div>
             </div>
-            <div className="bg-black p-8 border border-gray-800">
-              <div className="text-4xl font-black text-white mb-2">99%</div>
-              <div className="text-lg font-semibold text-gray-300">POSITIVE REVIEWS</div>
+            <div className="bg-black p-6">
+              <div className="text-3xl font-black text-white mb-2">99%</div>
+              <div className="text-sm font-semibold text-gray-300">POSITIVE REVIEWS</div>
             </div>
+            <div className="bg-black p-6">
+              <div className="text-3xl font-black text-white mb-2">24/7</div>
+              <div className="text-sm font-semibold text-gray-300">SUPPORT AVAILABLE</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* About Me / CEO Section */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid lg:grid-cols-2 gap-16 items-start">
+            {/* Left Side - Image */}
+            <div className="order-2 lg:order-1">
+              <div className="w-full max-w-md mx-auto lg:mx-0">
+                <div className="aspect-square bg-gray-100 overflow-hidden">
+                  <Image
+                    src="/20240615_100914.jpg"
+                    alt="Temitope GX - CEO & Founder"
+                    width={400}
+                    height={400}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              </div>
+            </div>
+
+            {/* Right Side - Content */}
+            <div className="order-1 lg:order-2">
+              <div className="max-w-xl">
+                <h2 className="text-4xl sm:text-5xl font-black text-black mb-6">
+                  ABOUT ME
+                </h2>
+                <h3 className="text-xl font-semibold text-green-500 mb-8">
+                  CEO & FOUNDER
+                </h3>
+                
+                <div className="space-y-6 text-gray-600 leading-relaxed mb-8">
+                  <p>
+                    Hello! I'm <strong className="text-black">Temitope GX</strong>, a passionate web developer and designer 
+                    with over 3 years of experience in creating digital solutions that make a difference.
+                  </p>
+                  
+                  <p>
+                    My journey began with a simple curiosity about how websites work, which evolved into a 
+                    deep passion for crafting exceptional user experiences. I specialize in front-end development, 
+                    WordPress solutions, and creative design that helps businesses stand out in the digital landscape.
+                  </p>
+                  
+                  <p>
+                    When I'm not coding or designing, you'll find me exploring new technologies, mentoring 
+                    upcoming developers, or working on innovative projects that push the boundaries of 
+                    what's possible on the web.
+                  </p>
+                </div>
+
+
+                {/* CTA */}
+                <div className="flex flex-col sm:flex-row gap-4">
+                  <Link
+                    href="/contact"
+                    className="inline-flex items-center px-8 py-3 bg-black text-white font-semibold hover:bg-gray-800 transition-colors duration-200"
+                  >
+                    LET'S WORK TOGETHER
+                    <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                  </Link>
+                  <Link
+                    href="/portfolio"
+                    className="inline-flex items-center px-8 py-3 border-2 border-black text-black font-semibold hover:bg-black hover:text-white transition-colors duration-200"
+                  >
+                    VIEW MY WORK
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* My Startups Section */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-black relative overflow-hidden">
+        <div className="max-w-7xl mx-auto relative z-10">
+          <div className="text-center mb-20">
+            <div className="inline-block bg-green-500 text-black px-4 py-2 font-bold text-sm mb-6">
+              ENTREPRENEUR
+            </div>
+            <h2 className="text-5xl sm:text-6xl lg:text-7xl font-black text-white mb-8 font-antonio">
+              MY STARTUPS
+            </h2>
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+              Building innovative solutions that solve real problems and create value for businesses and communities
+            </p>
+          </div>
+
+          <div className="space-y-24 lg:space-y-32">
+            {/* Billio Card */}
+            <div className="grid lg:grid-cols-12 gap-8 items-center relative">
+              {/* Cool Number */}
+              <div className="absolute -top-8 left-0 lg:left-8">
+                <div className="text-8xl lg:text-9xl font-black text-white/10 font-antonio leading-none">01</div>
+              </div>
+              
+              <div className="lg:col-span-2 lg:col-start-1 relative z-10">
+                <div className="text-center">
+                  <div className="w-24 h-24 bg-white border-4 border-green-500 flex items-center justify-center mx-auto mb-6">
+                    <span className="text-black font-black text-3xl">B</span>
+                  </div>
+                  <div className="bg-green-500 text-black px-4 py-2 font-bold text-sm inline-block">
+                    LAUNCHING 2025
+                  </div>
+                </div>
+              </div>
+              
+              <div className="lg:col-span-6 lg:col-start-4 relative z-10">
+                <div className="text-center lg:text-left">
+                  <div className="text-sm font-semibold text-green-400 mb-2">FINTECH STARTUP</div>
+                  <h3 className="text-4xl sm:text-5xl font-black text-white mb-4 font-antonio">BILLIO</h3>
+                  <p className="text-gray-300 text-lg leading-relaxed mb-8">
+                    Professional invoice and payment management platform designed to streamline 
+                    billing processes for small businesses and freelancers worldwide.
+                  </p>
+                  <Link
+                    href="/billio"
+                    className="inline-flex items-center bg-white text-black px-8 py-4 font-bold hover:bg-gray-100 transition-colors duration-200"
+                  >
+                    EXPLORE BILLIO
+                    <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                  </Link>
+                </div>
+              </div>
+            </div>
+            
+            {/* Agroconnect Card */}
+            <div className="grid lg:grid-cols-12 gap-8 items-center relative">
+              {/* Cool Number */}
+              <div className="absolute -top-8 right-0 lg:right-8">
+                <div className="text-8xl lg:text-9xl font-black text-white/10 font-antonio leading-none">02</div>
+              </div>
+              
+              <div className="lg:col-span-6 lg:col-start-3 order-2 lg:order-1 relative z-10">
+                <div className="text-center lg:text-right">
+                  <div className="text-sm font-semibold text-green-400 mb-2">AGTECH STARTUP</div>
+                  <h3 className="text-4xl sm:text-5xl font-black text-white mb-4 font-antonio">AGROCONNECT</h3>
+                  <p className="text-gray-300 text-lg leading-relaxed mb-8">
+                    Revolutionary agricultural marketplace that connects farmers directly to buyers, 
+                    eliminating middlemen and creating fair pricing for everyone.
+                  </p>
+                  <Link
+                    href="/agroconnect"
+                    className="inline-flex items-center bg-white text-black px-8 py-4 font-bold hover:bg-gray-100 transition-colors duration-200"
+                  >
+                    EXPLORE AGROCONNECT
+                    <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                  </Link>
+                </div>
+              </div>
+              
+              <div className="lg:col-span-2 lg:col-start-11 order-1 lg:order-2 relative z-10">
+                <div className="text-center">
+                  <div className="w-24 h-24 bg-white border-4 border-green-500 flex items-center justify-center mx-auto mb-6">
+                    <span className="text-black font-black text-3xl">A</span>
+                  </div>
+                  <div className="bg-green-500 text-black px-4 py-2 font-bold text-sm inline-block">
+                    LAUNCHING 2025
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Bottom CTA */}
+          <div className="text-center mt-16">
+            <p className="text-gray-400 mb-6">
+              Interested in collaborating or learning more about these projects?
+            </p>
+            <Link
+              href="/contact"
+              className="inline-flex items-center border-2 border-white text-white px-8 py-3 font-semibold hover:bg-white hover:text-black transition-colors duration-200"
+            >
+              LET'S DISCUSS
+            </Link>
           </div>
         </div>
       </section>
