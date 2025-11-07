@@ -9,10 +9,46 @@ import FallingText from './components/FallingText';
 
 export default function Home() {
   const [isVisible, setIsVisible] = useState(false);
+  const [activeTab, setActiveTab] = useState('Frontend');
 
   useEffect(() => {
     setIsVisible(true);
   }, []);
+
+  const techStack = {
+    Frontend: [
+      { name: 'React', icon: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/React_Logo_SVG.svg/800px-React_Logo_SVG.svg.png' },
+      { name: 'Next.js', icon: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Next.js_wordmark.svg/1920px-Next.js_wordmark.svg.png' },
+      { name: 'TypeScript', icon: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Typescript.svg/800px-Typescript.svg.png' },
+      { name: 'Three.js', icon: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Three.js_Icon.svg/800px-Three.js_Icon.svg.png' },
+      { name: 'Tailwind CSS', icon: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Tailwind_CSS_Logo.svg/1024px-Tailwind_CSS_Logo.svg.png' },
+      { name: 'Framer Motion', icon: 'https://www.framer.com/images/framer-logo.png' },
+    ],
+    Backend: [
+      { name: 'Node.js', icon: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Node.js_logo.svg/1024px-Node.js_logo.svg.png' },
+      { name: 'Express', icon: 'https://upload.wikimedia.org/wikipedia/commons/6/64/Expressjs.png' },
+      { name: 'MongoDB', icon: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/MongoDB_Logo.svg/1024px-MongoDB_Logo.svg.png' },
+      { name: 'PostgreSQL', icon: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/PostgreSQL_logo.3colors.svg/1024px-PostgreSQL_logo.3colors.svg.png' },
+      { name: 'Prisma', icon: 'https://prismalens.vercel.app/header/logo-dark.svg' },
+      { name: 'GraphQL', icon: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/GraphQL_Logo.svg/1024px-GraphQL_Logo.svg.png' },
+    ],
+    Design: [
+      { name: 'Figma', icon: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Figma-logo.svg/1024px-Figma-logo.svg.png' },
+      { name: 'Adobe XD', icon: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Adobe_XD_CC_icon.svg/1024px-Adobe_XD_CC_icon.svg.png' },
+      { name: 'Photoshop', icon: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Adobe_Photoshop_CC_icon.svg/1024px-Adobe_Photoshop_CC_icon.svg.png' },
+      { name: 'Illustrator', icon: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Adobe_Illustrator_CC_icon.svg/1024px-Adobe_Illustrator_CC_icon.svg.png' },
+      { name: 'Sketch', icon: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Sketch_Logo.svg/1024px-Sketch_Logo.svg.png' },
+      { name: 'Principle', icon: 'https://principleformac.com/images/icon.png' },
+    ],
+    Tools: [
+      { name: 'Git', icon: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Git-logo.svg/1024px-Git-logo.svg.png' },
+      { name: 'GitHub', icon: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Octicons-mark-github.svg/1024px-Octicons-mark-github.svg.png' },
+      { name: 'Vercel', icon: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Vercel_logo_black.svg/1024px-Vercel_logo_black.svg.png' },
+      { name: 'Docker', icon: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Docker_%28container_engine%29_logo.svg/1024px-Docker_%28container_engine%29_logo.svg.png' },
+      { name: 'AWS', icon: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Amazon_Web_Services_Logo.svg/1024px-Amazon_Web_Services_Logo.svg.png' },
+      { name: 'Notion', icon: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Notion_app_logo.png/1024px-Notion_app_logo.png' },
+    ],
+  };
 
   return (
     <div className="min-h-screen bg-white">
@@ -363,7 +399,7 @@ export default function Home() {
       {/* Skills Section */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white relative overflow-hidden">
         <div className="max-w-7xl mx-auto relative z-10">
-          {/* Header with FallingText */}
+          {/* Header */}
           <div className="text-center mb-20">
             <div className="inline-block bg-black text-white px-6 py-3 font-black text-sm mb-8">
               SERVICES & EXPERTISE
@@ -372,20 +408,6 @@ export default function Home() {
               WHAT I
               <span className="block text-green-500">CREATE</span>
             </h2>
-            
-            {/* FallingText Interactive Element */}
-            <div className="h-32 mb-12">
-              <FallingText
-                text="Brand Identity Web Development UI/UX Design Frontend Magic Digital Marketing Product Launch"
-                highlightWords={["Brand", "Web", "UI/UX", "Frontend", "Digital", "Product"]}
-                trigger="scroll"
-                backgroundColor="transparent"
-                wireframes={false}
-                gravity={0.8}
-                fontSize="1.5rem"
-                mouseConstraintStiffness={0.9}
-              />
-            </div>
           </div>
 
           {/* Simple Services Grid */}
@@ -475,28 +497,210 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Interactive CTA with FallingText */}
-          <div className="mt-20 text-center">
-            <div className="bg-black p-12">
-              <h3 className="text-4xl font-black text-white mb-8">READY TO CREATE SOMETHING AMAZING?</h3>
-              <div className="h-24 mb-8">
-                <FallingText
-                  text="Let's collaborate and bring your vision to life with creativity and innovation"
-                  highlightWords={["collaborate", "vision", "creativity", "innovation"]}
-                  trigger="hover"
-                  backgroundColor="transparent"
-                  wireframes={false}
-                  gravity={0.6}
-                  fontSize="1.2rem"
-                  mouseConstraintStiffness={0.8}
-                />
-              </div>
-              <Link
-                href="/contact"
-                className="inline-block bg-green-500 text-black px-12 py-4 font-black text-lg hover:bg-white hover:text-black transition-colors duration-300"
+          {/* FallingText Interactive Element */}
+          <div className="mt-16 mb-8">
+            <div className="h-32">
+              <FallingText
+                text="Brand Identity Web Development UI/UX Design Frontend Magic Digital Marketing Product Launch"
+                highlightWords={["Brand", "Web", "UI/UX", "Frontend", "Digital", "Product"]}
+                trigger="scroll"
+                backgroundColor="transparent"
+                wireframes={false}
+                gravity={0.8}
+                fontSize="1.5rem"
+                mouseConstraintStiffness={0.9}
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Tech Stack Section */}
+      <section className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 bg-white">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-8 sm:mb-12 lg:mb-16">
+            <div className="inline-block bg-black text-white px-4 py-2 sm:px-6 sm:py-3 font-black text-xs sm:text-sm mb-4 sm:mb-6 lg:mb-8">
+              TECHNOLOGY & TOOLS
+            </div>
+            <h2 className="text-3xl sm:text-5xl lg:text-6xl xl:text-7xl font-black text-black mb-4 sm:mb-6 lg:mb-8 font-antonio">
+              TECH STACK
+            </h2>
+            <p className="text-base sm:text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto px-4">
+              Cutting-edge technologies and tools I use to build exceptional digital experiences
+            </p>
+          </div>
+
+          {/* Tabs */}
+          <div className="flex flex-wrap justify-center gap-2 sm:gap-4 mb-8 sm:mb-10 lg:mb-12 px-2">
+            {['Frontend', 'Backend', 'Design', 'Tools'].map((tab) => (
+              <button
+                key={tab}
+                onClick={() => setActiveTab(tab)}
+                className={`px-4 py-2 sm:px-6 sm:py-2.5 lg:px-8 lg:py-3 font-bold text-xs sm:text-sm transition-colors duration-300 ${
+                  activeTab === tab
+                    ? 'bg-green-500 text-black'
+                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200 border-2 border-gray-200'
+                }`}
               >
-                LET'S TALK
-              </Link>
+                {tab.toUpperCase()}
+              </button>
+            ))}
+          </div>
+
+          {/* Tech Icons Grid */}
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 sm:gap-6 lg:gap-8">
+            {techStack[activeTab]?.map((tech, index) => (
+              <div
+                key={index}
+                className="group flex flex-col items-center justify-center p-3 sm:p-4 lg:p-6 bg-gray-50 border-2 border-gray-200 hover:border-green-500 transition-all duration-300 hover:bg-white"
+              >
+                <div className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 mb-2 sm:mb-3 lg:mb-4 flex items-center justify-center">
+                  <Image
+                    src={tech.icon}
+                    alt={tech.name}
+                    width={64}
+                    height={64}
+                    className="object-contain group-hover:scale-110 transition-transform duration-300 w-full h-full"
+                    unoptimized
+                  />
+                </div>
+                <span className="text-xs sm:text-sm text-gray-700 group-hover:text-black transition-colors duration-300 text-center font-medium leading-tight">
+                  {tech.name}
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Process Section */}
+      <section className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 bg-black">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-12 sm:mb-16 lg:mb-20">
+            <div className="inline-block bg-green-500 text-black px-4 py-2 sm:px-6 sm:py-3 font-black text-xs sm:text-sm mb-4 sm:mb-6 lg:mb-8">
+              COLLABORATION
+            </div>
+            <h2 className="text-3xl sm:text-5xl lg:text-6xl xl:text-7xl font-black text-white mb-4 sm:mb-6 lg:mb-8 font-antonio">
+              HOW WE WORK
+              <span className="block text-green-500">TOGETHER</span>
+            </h2>
+            <p className="text-base sm:text-lg lg:text-xl text-gray-300 max-w-3xl mx-auto px-4">
+              A streamlined process designed to deliver exceptional results while keeping you involved every step of the way
+            </p>
+          </div>
+
+          <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-start mb-12 sm:mb-16 lg:mb-20">
+            {/* Left Side - Process Steps */}
+            <div className="space-y-8 sm:space-y-10 lg:space-y-12">
+              <div className="flex items-start">
+                <div className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 bg-green-500 flex items-center justify-center mr-4 sm:mr-5 lg:mr-6 flex-shrink-0">
+                  <span className="text-black font-black text-lg sm:text-xl">01</span>
+                </div>
+                <div>
+                  <h3 className="text-xl sm:text-2xl font-bold text-white mb-2 sm:mb-3">DISCOVERY & STRATEGY</h3>
+                  <p className="text-sm sm:text-base text-gray-300 leading-relaxed">
+                    We start by understanding your business goals, target audience, and project requirements. 
+                    This phase includes research, competitor analysis, and strategic planning.
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex items-start">
+                <div className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 bg-green-500 flex items-center justify-center mr-4 sm:mr-5 lg:mr-6 flex-shrink-0">
+                  <span className="text-black font-black text-lg sm:text-xl">02</span>
+                </div>
+                <div>
+                  <h3 className="text-xl sm:text-2xl font-bold text-white mb-2 sm:mb-3">DESIGN & PROTOTYPE</h3>
+                  <p className="text-sm sm:text-base text-gray-300 leading-relaxed">
+                    Creating wireframes, mockups, and interactive prototypes. You'll see exactly how 
+                    your project will look and function before we start development.
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex items-start">
+                <div className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 bg-green-500 flex items-center justify-center mr-4 sm:mr-5 lg:mr-6 flex-shrink-0">
+                  <span className="text-black font-black text-lg sm:text-xl">03</span>
+                </div>
+                <div>
+                  <h3 className="text-xl sm:text-2xl font-bold text-white mb-2 sm:mb-3">DEVELOPMENT & TESTING</h3>
+                  <p className="text-sm sm:text-base text-gray-300 leading-relaxed">
+                    Building your project with clean, scalable code. Regular updates and testing 
+                    ensure everything works perfectly across all devices and browsers.
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex items-start">
+                <div className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 bg-green-500 flex items-center justify-center mr-4 sm:mr-5 lg:mr-6 flex-shrink-0">
+                  <span className="text-black font-black text-lg sm:text-xl">04</span>
+                </div>
+                <div>
+                  <h3 className="text-xl sm:text-2xl font-bold text-white mb-2 sm:mb-3">LAUNCH & SUPPORT</h3>
+                  <p className="text-sm sm:text-base text-gray-300 leading-relaxed">
+                    Deploying your project and providing ongoing support. I ensure smooth launch 
+                    and offer maintenance to keep everything running optimally.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Right Side - Benefits */}
+            <div className="bg-white p-6 sm:p-8 lg:p-12 border-l-4 border-green-500">
+              <h3 className="text-2xl sm:text-3xl font-black text-black mb-6 sm:mb-8">WHY THIS PROCESS WORKS</h3>
+              <div className="space-y-4 sm:space-y-6">
+                <div className="flex items-start">
+                  <div className="w-6 h-6 bg-green-500 flex items-center justify-center mr-3 sm:mr-4 mt-1 flex-shrink-0">
+                    <FiCode className="w-3 h-3 text-white" />
+                  </div>
+                  <div>
+                    <h4 className="text-sm sm:text-base font-bold text-black mb-1">TRANSPARENT COMMUNICATION</h4>
+                    <p className="text-xs sm:text-sm text-gray-600">Regular updates and clear timelines keep you informed throughout the project.</p>
+                  </div>
+                </div>
+
+                <div className="flex items-start">
+                  <div className="w-6 h-6 bg-green-500 flex items-center justify-center mr-3 sm:mr-4 mt-1 flex-shrink-0">
+                    <FiLayers className="w-3 h-3 text-white" />
+                  </div>
+                  <div>
+                    <h4 className="text-sm sm:text-base font-bold text-black mb-1">COLLABORATIVE APPROACH</h4>
+                    <p className="text-xs sm:text-sm text-gray-600">Your input and feedback are valued at every stage of the development process.</p>
+                  </div>
+                </div>
+
+                <div className="flex items-start">
+                  <div className="w-6 h-6 bg-green-500 flex items-center justify-center mr-3 sm:mr-4 mt-1 flex-shrink-0">
+                    <FiZap className="w-3 h-3 text-white" />
+                  </div>
+                  <div>
+                    <h4 className="text-sm sm:text-base font-bold text-black mb-1">QUALITY ASSURANCE</h4>
+                    <p className="text-xs sm:text-sm text-gray-600">Rigorous testing and optimization ensure your project exceeds expectations.</p>
+                  </div>
+                </div>
+
+                <div className="flex items-start">
+                  <div className="w-6 h-6 bg-green-500 flex items-center justify-center mr-3 sm:mr-4 mt-1 flex-shrink-0">
+                    <FiShield className="w-3 h-3 text-white" />
+                  </div>
+                  <div>
+                    <h4 className="text-sm sm:text-base font-bold text-black mb-1">ONGOING SUPPORT</h4>
+                    <p className="text-xs sm:text-sm text-gray-600">Continued maintenance and support ensure long-term success of your project.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="mt-6 sm:mt-8 pt-6 sm:pt-8 border-t border-gray-200">
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center bg-black text-white px-6 py-3 sm:px-8 sm:py-4 font-bold text-sm sm:text-base hover:bg-green-500 hover:text-black transition-colors duration-300 w-full sm:w-auto justify-center"
+                >
+                  START YOUR PROJECT
+                  <svg className="w-4 h-4 sm:w-5 sm:h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </Link>
+              </div>
             </div>
           </div>
         </div>
